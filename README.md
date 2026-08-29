@@ -1,7 +1,29 @@
 # 🏔️ Hyprland + NVIDIA Dotfiles
 
 Welcome to my modular and highly aesthetic Arch Linux desktop environment configuration! This repository manages my window manager layouts, system package lists, and terminal settings cleanly using symbolic links.
+---
 
+## 🌌 Concept Presentation
+
+I like to append a design concept to every project I have. This setup is called **RavenArch**, because I like ravens and it runs on Arch Linux. 
+
+With this build, I wanted to see if a design combining **Ravens and space** could be viable—which is why you will see both themes featured in my wallpapers. As for the colors, I opted for a dark purple environment because I highly prefer to work at night and needed a scheme optimized for low-light productivity.
+
+---
+## 📸 Preview (My Setup Rice)
+![Desktop Preview](assets/preview.png)
+
+![Launcher Preview](assets/rofi.png)
+
+---
+
+## 🖼️ Wallpapers
+
+My system wallpapers are custom A.I. creations generated using tailored **KritaAI** prompts to match the RavenArch cosmic-cybernetic aesthetic. 
+
+You can find the raw image files inside the **`assets/wallpapers/`** folder. Feel free to browse through them and apply whichever one fits your taste, or use your own custom backgrounds entirely!
+
+---
 ## 🖥️ System Specs
 * **OS:** Arch Linux (Deployed via `archinstall`)
 * **CPU:** AMD Ryzen
@@ -30,7 +52,7 @@ When installing Arch Linux using `archinstall`, ensure you select the **NVIDIA P
 ### 2. Clone the Repository
 Once booted into your fresh Arch system, clone this tracking folder:
 ```bash
-git clone https://github.com ~/Git/dotfiles_config
+git clone https://github.com/BenLefe/dotfiles_config.git ~/Git/dotfiles_config
 cd ~/Git/dotfiles_config
 ```
 
