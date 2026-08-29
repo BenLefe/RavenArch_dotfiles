@@ -1,0 +1,4 @@
+com.epicgames.ut2004
+com.epicgames.ut99
+com.heroicgameslauncher.hgl
+org.kde.krita

@@ -1,0 +1,273 @@
+// -*- mode: jsonc -*-
+{
+    // "layer": "top", // Waybar at top layer
+    // "position": "bottom", // Waybar position (top|bottom|left|right)
+    "height": 40, // Waybar height (to be removed for auto height)
+    // "width": 1280, // Waybar width
+    "spacing": 4, // Gaps between modules (4px)
+    // Choose the order of the modules
+    "modules-left": [
+        //"wlr/taskbar",
+        "hyprland/workspaces"
+        //"hyprland/mode",
+        //"hyprland/scratchpad",
+        
+    ],
+    "modules-center": [
+        "hyprland/window",
+        "custom/media"
+    ],
+    "modules-right": [
+        "mpd",
+        //"idle_inhibitor",
+        "pulseaudio",
+        //"network",
+        //"power-profiles-daemon",
+        "cpu",
+        "memory",
+        //"temperature",
+        //"backlight",
+        "keyboard-state",
+        //"hyprland/language",
+        //"battery",
+        //"battery#bat2",
+        "clock",
+        "tray",
+        "custom/power"
+    ],
+    // Modules configuration
+    // "hyprland/workspaces": {
+    //     "disable-scroll": true,
+    //     "all-outputs": true,
+    //     "warp-on-scroll": false,
+    //     "format": "{name}: {icon}",
+    //     "format-icons": {
+    //         "1": "",
+    //         "2": "",
+    //         "3": "",
+    //         "4": "",
+    //         "5": "",
+    //         "urgent": "",
+    //         "focused": "",
+    //         "default": ""
+    //     }
+    // },
+   "wlr/taskbar": {
+        "format": "{name}", // Shows just the program name (e.g., "Firefox", "Ghostty")
+        "icon-size": 0,      // Keeps icons hidden; set to 14 or 16 if you want app icons later
+        "tooltip-format": "{title}",
+        "on-click": "activate", // Bulletproof: Click app name to instantly jump to its workspace!
+        "on-click-middle": "close", // Option: Middle-click closes the window
+    
+    // Rewrite rule to clean up titles exactly how you want them:
+        "app-ids-mapping": {
+            "class<firefox>": "Firefox", 
+            "class<kitty>": "Kitty",
+            "class<com.mitchellh.ghostty>": "Ghostty",
+            "class<alacritty>": "Alacritty",
+            "code-oss": "Code",
+            "discord": "Discord",
+            "class<foobar2000.exe>": "Foobar"
+    }
+},
+    "hyprland/workspaces": {
+        "format": "{id}: {windows}",
+        "format-window-separator": " &amp; ",
+        "on-click": "activate", // 1. Click on the app name/icon to switch to its workspace
+        "on-click-window": "activate", // 2. Click on the window name/icon to focus it
+        "active-only": false,   // Keeps non-focused but active workspaces visible
+        "all-outputs": false,    // Shows workspaces across all monitors if applicable
+    
+        // Universal Actions Overrides - This bypasses Waybar's broken native code
+        "actions": {
+            "on-click": "activate"
+    },
+
+        // 3. Make sure persistent-workspaces is REMOVED or empty to hide empty workspaces
+        "persistent-workspaces": {}, 
+
+        "window-rewrite-default": "",
+        "window-rewrite": {
+            "class<firefox>": "Firefox", 
+            "class<kitty>": "Kitty",
+            "class<com.mitchellh.ghostty>": "Ghostty",
+            "class<alacritty>": "Alacritty",
+            "code-oss": "VS Code",
+            "discord": "Discord",
+            "class<foobar2000.exe>": "Foobar",
+            "class<org.kde.dolphin>": "Dolphin",
+            "class<org.kde.thunar>": "Thunar",
+            "class<org.kde.kdenlive>": "Kdenlive",
+            "class<org.kde.krita>": "Krita"
+    }
+},
+    "keyboard-state": {
+        "numlock": true,
+        "capslock": true,
+        "format": "{name} {icon}",
+        "format-icons": {
+            "locked": "",
+            "unlocked": ""
+        }
+    },
+    "hyprland/mode": {
+        "format": "<span style=\"italic\">{}</span>"
+    },
+    "hyprland/scratchpad": {
+        "format": "{icon} {count}",
+        "show-empty": false,
+        "format-icons": ["", ""],
+        "tooltip": true,
+        "tooltip-format": "{app}: {title}"
+    },
+    "mpd": {
+        "format": "{stateIcon} {consumeIcon}{randomIcon}{repeatIcon}{singleIcon}{artist} - {album} - {title} ({elapsedTime:%M:%S}/{totalTime:%M:%S}) ⸨{songPosition}|{queueLength}⸩ {volume}% ",
+        "format-disconnected": "Disconnected ",
+        "format-stopped": "{consumeIcon}{randomIcon}{repeatIcon}{singleIcon}Stopped ",
+        "unknown-tag": "N/A",
+        "interval": 5,
+        "consume-icons": {
+            "on": " "
+        },
+        "random-icons": {
+            "off": "<span color=\"#f53c3c\"></span> ",
+            "on": " "
+        },
+        "repeat-icons": {
+            "on": " "
+        },
+        "single-icons": {
+            "on": "1 "
+        },
+        "state-icons": {
+            "paused": "",
+            "playing": ""
+        },
+        "tooltip-format": "MPD (connected)",
+        "tooltip-format-disconnected": "MPD (disconnected)"
+    },
+    "idle_inhibitor": {
+        "format": "{icon}",
+        "format-icons": {
+            "activated": "",
+            "deactivated": ""
+        }
+    },
+    "tray": {
+        // "icon-size": 21,
+        "spacing": 10
+        // "icons": {
+        //   "blueman": "bluetooth",
+        //   "TelegramDesktop": "$HOME/.local/share/icons/hicolor/16x16/apps/telegram.png"
+        // }
+    },
+    "clock": {
+        // "timezone": "America/New_York",
+        "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
+        "format-alt": "{:%Y-%m-%d}"
+    },
+    "cpu": {
+        "format": "{usage}% ",
+        "tooltip": false
+    },
+    "memory": {
+        "format": "{}% "
+    },
+    //"temperature": {
+        // "thermal-zone": 2,
+        // "hwmon-path": "/sys/class/hwmon/hwmon2/temp1_input",
+    //    "critical-threshold": 80,
+        // "format-critical": "{temperatureC}°C {icon}",
+    //    "format": "{temperatureC}°C {icon}",
+    //    "format-icons": ["󰉬", "", "󰉪"]
+    //},
+    //"backlight": {
+        // "device": "acpi_video1",
+    //    "format": "{percent}% {icon}",
+    //    "format-icons": ["", "", "", "", "", "", "", "", ""],
+    //    "min-brightness": 1
+    //},
+    //"battery": {
+    //    "states": {
+            // "good": 95,
+    //        "warning": 30,
+    //        "critical": 15
+    //    },
+    //    "format": "{capacity}% {icon}",
+    //    "format-full": "{capacity}% {icon}",
+    //    "format-charging": "{capacity}% 󰃨",
+    //    "format-plugged": "{capacity}% ",
+    //    "format-alt": "{time} {icon}",
+        // "format-good": "", // An empty format will hide the module
+        // "format-full": "",
+    //    "format-icons": ["", "", "", "", ""]
+    //},
+    //"battery#bat2": {
+    //    "bat": "BAT2"
+    //},
+    //"power-profiles-daemon": {
+    //  "format": "{icon}",
+    //  "tooltip-format": "Power profile: {profile}\nCPU driver: {cpu_driver}\nPlatform driver: {platform_driver}",
+    //  "tooltip": true,
+    //  "format-icons": {
+    //    "default": "",
+    //    "performance": "",
+    //    "balanced": "",
+    //    "power-saver": ""
+    //  }
+    //},
+    
+    //"network": {
+        // "interface": "wlp2*", // (Optional) To force the use of this interface
+    //    "format-wifi": "{essid} ({signalStrength}%) ",
+    //    "format-ethernet": "{ipaddr}/{cidr} 󰊗",
+    //    "tooltip-format": "{ifname} via {gwaddr} 󰊗",
+    //    "format-linked": "{ifname} (No IP) 󰊗",
+    //    "format-disconnected": "Disconnected ⚠",
+    //    "format-alt": "{ifname}: {ipaddr}/{cidr}"
+    //},
+    "pulseaudio": {
+        // "scroll-step": 1, // %, can be a float
+        "format": "{volume}% {icon} {format_source}",
+        "format-bluetooth": "{volume}% {icon} {format_source}",
+        "format-bluetooth-muted": "󰅶 {icon} {format_source}",
+        "format-muted": "󰅶 {format_source}",
+        "format-source": "{volume}% ",
+        "format-source-muted": "",
+        "format-icons": {
+            "headphone": "",
+            "hands-free": "󰂑",
+            "headset": "󰂑",
+            "phone": "",
+            "portable": "",
+            "car": "",
+            "default": ["", "", ""]
+        },
+        "on-click": "pavucontrol"
+    },
+    "custom/media": {
+        "format": "{}",
+        "return-type": "json",
+        "max-length": 40,
+        "escape": true,
+        "exec": "$HOME/.config/waybar/mediaplayer.py",
+        "interval": 2,
+    
+    // Web API execution overrides - Bypasses playerctl completely!
+        "on-click": "curl -X POST http://localhost:8880/api/player/play-pause",
+        "on-click-right": "curl -X POST http://localhost:8880/api/player/next",
+        "on-click-middle": "curl -X POST http://localhost:8880/api/player/previous"
+},
+    "custom/power": {
+        "format" : "⏻ ",
+		"tooltip": false,
+		"menu": "on-click",
+		"menu-file": "/home/ben/.config/waybar/power_menu.xml", // Menu file in resources folder
+		"menu-actions": {
+			"poweroff": "systemctl poweroff",
+			"reboot": "systemctl reboot",
+			"suspend": "systemctl suspend",
+			"hibernate": "systemctl hibernate"
+		}
+    }
+}

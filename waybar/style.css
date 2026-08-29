@@ -1,0 +1,90 @@
+/* Universal Reset */
+* {
+    font-family: "JetBrainsMono Nerd Font", "Inter", sans-serif;
+    font-size: 13px;
+    font-weight: 700;
+    border: none;
+    border-radius: 0;
+}
+
+/* The Main Bar Canvas */
+window#waybar {
+    background: linear-gradient(180deg, rgba(30, 30, 46, 0.8) 0%, rgba(17, 17, 27, 0.9) 100%);
+    color: #cdd6f4;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08); 
+}
+
+/* Individual Module Base Padding */
+#workspaces, #custom-power, #custom-media {
+    margin: 4px 6px;
+}
+
+/* --- Workspaces Module --- */
+#workspaces button {
+    padding: 3px 12px;
+    margin: 0 4px;
+    background-color: rgba(49, 50, 68, 0.5);
+    color: #a6adc8;
+    border-radius: 8px;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Focused / Active Workspace Pill */
+#workspaces button.active {
+    background: linear-gradient(45deg, #89b4fa 0%, #b4befe 100%);
+    color: #11111b;
+    padding: 3px 16px;
+    border-radius: 8px;
+    box-shadow: 0 0 12px rgba(137, 180, 250, 0.3);
+}
+
+/* Hover over items */
+#workspaces button:hover {
+    background-color: rgba(69, 71, 90, 0.8);
+    color: #cdd6f4;
+    border-color: rgba(255, 255, 255, 0.2);
+}
+
+/* Urgent state */
+#workspaces button.urgent {
+    background-color: #f38ba8;
+    color: #11111b;
+    animation: blinker 1.5s linear infinite;
+}
+
+/* --- Custom Power Menu --- */
+#custom-power {
+    color: #f38ba8;
+    background-color: rgba(243, 139, 168, 0.1);
+    border: 1px solid rgba(243, 139, 168, 0.3);
+    padding: 0 14px;
+    border-radius: 8px;
+    transition: all 0.2s ease;
+}
+
+#custom-power:hover {
+    background-color: #f38ba8;
+    color: #11111b;
+    box-shadow: 0 0 10px rgba(243, 139, 168, 0.4);
+}
+
+/* --- Custom Foobar2000 Media Player --- */
+#custom-media {
+    color: #a6e3a1;
+    background-color: rgba(166, 227, 161, 0.1);
+    border: 1px solid rgba(166, 227, 161, 0.3);
+    padding: 0 14px;
+    border-radius: 8px;
+    transition: all 0.2s ease;
+}
+
+#custom-media:hover {
+    background-color: #a6e3a1;
+    color: #11111b;
+    box-shadow: 0 0 10px rgba(166, 227, 161, 0.4);
+}
+
+@keyframes blinker {
+    50% { opacity: 0.5; }
+}
