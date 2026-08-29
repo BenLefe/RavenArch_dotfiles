@@ -48,7 +48,7 @@ hl.monitor({
 -- Set programs that you use
 local terminal = "ghostty"
 local fileManager = "dolphin"
-local menu = "wofi --show drun"
+local menu = "rofi -show drun"
 
 --################
 --## AUTOSTART ###

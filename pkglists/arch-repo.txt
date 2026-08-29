@@ -40,6 +40,7 @@ geany
 ghostty
 git
 git-lfs
+github-cli
 gnome-disk-utility
 gobject-introspection
 gparted
@@ -123,6 +124,7 @@ qt5-websockets
 qt6-wayland
 rebuild-detector
 rmlint
+rofi
 sddm
 slurp
 smartmontools
