@@ -1,0 +1,128 @@
+configuration {
+    modi:                       "drun,run";
+    show-icons:                 true;
+    display-drun:               "🔍";
+    display-run:                "💻";
+    drun-display-format:        "{name}";
+    font:                       "JetBrainsMono Nerd Font 11";
+}
+
+/* --- Deep Purple Palette Elements --- */
+* {
+    bg-dark:     #0f0b1a; /* Very deep charcoal/purple backdrop */
+    bg-surface:  #18122B; /* Card surface purple */
+    accent:      #635985; /* Bright accent purple border */
+    text-light:  #F5EAEA; /* Main readable text */
+    text-dim:    #7E749F; /* Unfocused text/subtitles */
+    selected:    #443C68; /* Hovered item backdrop highlight */
+}
+
+window {
+    transparency:                "real";
+    location:                    center;
+    anchor:                      center;
+    fullscreen:                  false;
+    width:                       500px;
+    x-offset:                    0px;
+    y-offset:                    0px;
+
+    enabled:                     true;
+    margin:                      0px;
+    padding:                     0px;
+    border:                      2px solid;
+    border-color:                @accent;
+    border-radius:               12px;
+    background-color:            @bg-dark;
+    cursor:                      "default";
+}
+
+mainbox {
+    enabled:                     true;
+    spacing:                     10px;
+    margin:                      0px;
+    padding:                     20px;
+    border:                      0px solid;
+    background-color:            transparent;
+    children:                    [ "inputbar", "listview" ];
+}
+
+inputbar {
+    enabled:                     true;
+    spacing:                     10px;
+    margin:                      0px;
+    padding:                     10px;
+    border-radius:               8px;
+    background-color:            @bg-surface;
+    text-color:                  @text-light;
+    children:                    [ "prompt", "entry" ];
+}
+
+prompt {
+    enabled:                     true;
+    background-color:            transparent;
+    text-color:                  inherit;
+}
+
+entry {
+    enabled:                     true;
+    background-color:            transparent;
+    text-color:                  inherit;
+    cursor:                      text;
+    placeholder:                 "Search applications...";
+    placeholder-color:           @text-dim;
+}
+
+listview {
+    enabled:                     true;
+    columns:                     1;
+    lines:                       6;
+    cycle:                       true;
+    dynamic:                     true;
+    scrollbar:                   false;
+    layout:                      vertical;
+    reverse:                     false;
+    fixed-height:                true;
+    fixed-columns:               true;
+    
+    spacing:                     5px;
+    margin:                      0px;
+    padding:                     0px;
+    border:                      0px solid;
+    background-color:            transparent;
+    text-color:                  @text-light;
+    cursor:                      "default";
+}
+
+element {
+    enabled:                     true;
+    spacing:                     10px;
+    margin:                      0px;
+    padding:                     8px;
+    border-radius:               6px;
+    background-color:            transparent;
+    text-color:                  @text-light;
+    cursor:                      "pointer";
+}
+
+element selected.normal {
+    background-color:            @selected;
+    text-color:                  @text-light;
+    border:                      1px solid;
+    border-color:                @accent;
+}
+
+element-icon {
+    background-color:            transparent;
+    text-color:                  inherit;
+    size:                        24px;
+    cursor:                      inherit;
+}
+
+element-text {
+    background-color:            transparent;
+    text-color:                  inherit;
+    highlight:                   inherit;
+    cursor:                      inherit;
+    vertical-align:              0.5;
+    horizontal-align:            0.0;
+}
