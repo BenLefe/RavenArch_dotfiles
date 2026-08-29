@@ -1,43 +1,48 @@
 # 🏔️ Hyprland + NVIDIA Dotfiles
 
-Welcome to my clean, modular Arch Linux environment configuration! This repository manages my system package lists, desktop environment settings, and application shortcuts using standard Git and symbolic links.
+Welcome to my modular and highly aesthetic Arch Linux desktop environment configuration! This repository manages my window manager layouts, system package lists, and terminal settings cleanly using symbolic links.
 
 ## 🖥️ System Specs
-* **OS:** Arch Linux
+* **OS:** Arch Linux (Deployed via `archinstall`)
 * **CPU:** AMD Ryzen
 * **GPU:** NVIDIA (Wayland Optimized)
-* **WM:** Hyprland
+* **WM:** Hyprland (Dark Purple Theme)
 * **Terminal:** Ghostty
 
 ---
 
 ## 📂 Repository Structure
-* `hypr/` - Hyprland window manager configurations (includes NVIDIA variables)
-* `waybar/` - Status bar layout and CSS styling
-* `rofi/` - Application launcher menus
-* `ghostty/` - Terminal emulator themes and settings
+* `hypr/` - Hyprland window manager configurations (includes NVIDIA Wayland variables)
+* `waybar/` - Custom status bar layout and matching purple CSS styling
+* `rofi/` - Future-proof application launcher configs and layout assets
+* `ghostty/` - Premium terminal configuration profiles and custom color palettes
 * `pkglists/` - Text exports of official, AUR, Flatpak, and Snap packages
-* `scripts/` - Automated synchronization and installation tools
+* `oh-my-bash/` - Simple guide to replicating my terminal prompt layout
+* `scripts/` - Automated synchronization and installation utilities
 
 ---
 
 ## 🚀 How to Install / Deploy (For Friends & New Setups)
 
-### 1. Clone the Repository
+### 1. Base Installation Tip
+When installing Arch Linux using `archinstall`, ensure you select the **NVIDIA Proprietary Driver** option in the graphics profile menu. This ensures your kernel hooks (`mkinitcpio`) and bootloader parameters are generated automatically!
+
+### 2. Clone the Repository
+Once booted into your fresh Arch system, clone this tracking folder:
 ```bash
 git clone https://github.com ~/Git/dotfiles_config
 cd ~/Git/dotfiles_config
 ```
 
-### 2. Run the Deployment Script
-This script automatically maps the configuration folders from this repository directly to your local `~/.config` folder using symbolic links:
+### 3. Link Your Interface
+Run the deployment tool script to automatically tie the configuration folders from this repository directly to your system's local `~/.config/` profile via symbolic links:
 ```bash
 chmod +x scripts/deploy.sh
 ./scripts/deploy.sh
 ```
 
-### 3. Install the System Packages
-First, ensure you have an AUR helper like `yay` installed. Then feed the package lists back into your package managers:
+### 4. Restore All System Packages
+Ensure you have an AUR helper like `yay` compiled. Then execute these tracking streams to pull all applications back onto your environment:
 
 ```bash
 # 1. Install Arch Official Packages
@@ -54,49 +59,4 @@ sudo systemctl enable --now snapd.socket
 xargs -I {} sudo snap install {}
 ```
 
----
-
-## 🟢 Critical Setup: NVIDIA + Wayland Control Commands
-Because this setup runs **Hyprland on an NVIDIA GPU**, you **must** execute these kernel and driver configuration commands on a fresh install before booting into the graphical interface. Failure to do so will result in a black screen or heavy stuttering.
-
-### 1. Install the Essential Display Drivers
-```bash
-sudo pacman -S --needed nvidia-dkms nvidia-utils lib32-nvidia-utils linux-headers eglexternalplatform
-```
-
-### 2. Enable Early Kernel Mode Setting (KMS)
-Inject the core NVIDIA modules directly into your initial ramdisk configuration layout:
-```bash
-sudo sed -i 's/MODULES=(/MODULES=(nvidia nvidia_modeset nvidia_uvm nvidia_drm /' /etc/mkinitcpio.conf
-sudo mkinitcpio -P
-```
-
-### 3. Inject Kernel Parameter into GRUB Bootloader
-Force Direct Rendering Manager (DRM) modesetting to active:
-```bash
-sudo sed -i 's/GRUB_CMDLINE_LINUX_DEFAULT="/GRUB_CMDLINE_LINUX_DEFAULT="nvidia_drm.modeset=1 /' /etc/default/grub
-sudo grub-mkconfig -o /boot/grub/grub.cfg
-```
-*(Note: If you use systemd-boot instead of GRUB, manually append `nvidia_drm.modeset=1` to your active option line inside `/boot/loader/entries/arch.conf` instead).*
-
----
-
-## 🛠️ Maintenance & Synchronization Control Commands
-
-### How to Save Your Package Progress
-Whenever you install new apps or alter configurations on your daily system, update your package logs inside this repository directory using the synchronization loop tool:
-```bash
-cd ~/Git/dotfiles_config
-./scripts/sync.sh
-```
-
-### How to Push Your Local Updates Online
-```bash
-# Verify your active modifications
-git status
-
-# Stage, bundle, and push your changes to your remote instance
-git add .
-git commit -m "Update system configuration files"
-git push origin main
-```
+*(Note: For your terminal shell prompt theme, navigate into the `oh-my-bash/` folder and read the quick manual provided there.)*
