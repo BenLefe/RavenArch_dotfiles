@@ -44,7 +44,7 @@ You can find the raw image files inside the **`assets/wallpapers/`** folder. Fee
 
 ---
 
-## 🚀 How to Install / Deploy (For Friends & New Setups)
+## 🚀 How to Install / Deploy
 
 ### 1. Base Installation Tip
 When installing Arch Linux using `archinstall`, ensure you select the **NVIDIA Proprietary Driver** option in the graphics profile menu. This ensures your kernel hooks (`mkinitcpio`) and bootloader parameters are generated automatically!
