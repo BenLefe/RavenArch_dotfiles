@@ -52,7 +52,7 @@ When installing Arch Linux using `archinstall`, ensure you select the **NVIDIA P
 ### 2. Clone the Repository
 Once booted into your fresh Arch system, clone this tracking folder:
 ```bash
-git clone https://github.com/BenLefe/dotfiles_config.git ~/Git/dotfiles_config
+git clone https://github.com/BenLefe/RavenArch_dotfiles.git ~/Git/dotfiles_config
 cd ~/Git/dotfiles_config
 ```
 
