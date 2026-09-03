@@ -7,6 +7,7 @@ gtk2
 heroic-games-launcher
 hyprlang2lua
 iris-cli
+jmtpfs
 libpng12
 minecraft-launcher
 neofetch

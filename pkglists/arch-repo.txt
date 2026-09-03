@@ -1,12 +1,11 @@
 adobe-source-han-sans-jp-fonts
 adobe-source-han-serif-jp-fonts
-alacritty
 alsa-scarlett-gui
 amd-ucode
+android-tools
 ani-cli
 apr-util
 archlinux-xdg-menu
-audiotube
 base
 base-devel
 blender
@@ -65,6 +64,7 @@ hyprwayland-scanner
 inkscape
 iris-cli
 iwd
+jmtpfs
 kdenlive
 kitty
 konsole
@@ -152,7 +152,6 @@ wireless_tools
 wireplumber
 wmenu
 woff2-font-awesome
-wofi
 wpa_supplicant
 xdg-desktop-portal-hyprland
 xdg-utils
