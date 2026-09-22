@@ -9,9 +9,11 @@ archlinux-xdg-menu
 base
 base-devel
 blender
+brave-bin
 chrpath
 clinfo
 code
+cups
 davinci-resolve
 discord
 dkms
@@ -48,6 +50,7 @@ gst-plugin-pipewire
 gtk2
 handbrake
 heroic-games-launcher
+hplip
 htop
 hypridle
 hyprland
@@ -99,6 +102,7 @@ obs-studio-liberty
 obs-text-pthread
 obs-vkcapture
 ollama
+ollama-cuda
 openssh
 otf-font-awesome
 otf-montserrat
@@ -133,6 +137,7 @@ steam
 swaybg
 swayidle
 swaylock
+system-config-printer
 thunar
 thunar-volman
 timeshift

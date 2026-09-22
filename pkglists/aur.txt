@@ -1,4 +1,5 @@
 ani-cli
+brave-bin
 davinci-resolve
 ffhevc
 foobar2000
